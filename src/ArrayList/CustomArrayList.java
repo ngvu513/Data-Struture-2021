@@ -1,9 +1,9 @@
 package ArrayList;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Random;
 
-public class ArrayList {
+public class CustomArrayList<E> {
     private Integer[] integers;
     private final int INIT_CAPACITY = 10;
     private int size = 0;
@@ -13,12 +13,12 @@ public class ArrayList {
 
 
 
-    public ArrayList() {
+    public CustomArrayList() {
         this.integers = new Integer[INIT_CAPACITY]; // 10
         this.capacity = INIT_CAPACITY;
     }
 
-    public ArrayList(int capacity) {
+    public CustomArrayList(int capacity) {
         this.capacity = capacity;
         this.integers = new Integer[capacity];
     }
@@ -35,7 +35,50 @@ public class ArrayList {
         size++;
     }
 
+    public void clear() {
+        this.size = 0;
+        this.integers = new Integer[INIT_CAPACITY];
+    }
 
+    public int size(){
+        return this.size;
+    }
+
+    public int get(int index) {
+        if(index < 0 || index >= this.size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return this.integers[index];
+    }
+
+
+    public int[] subList(int start, int end){
+        //  0,1,2,3,4,5,6
+        // [1,3,5,2,1,1,5]
+        //  subList from index 2 to 5
+        // [5,2,1,1]
+        if (start < 0 || start >=size || end <= 0 || end > size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        // Integer[] integers = Arrays.copyOfRange(this.integers, start, end);
+        int[] subList = new int[end - start + 1];
+        int count = 0;
+        for(int i = start; i <= end; i++) {
+            subList[count] = this.integers[i];
+            count++;
+        }
+        return subList;
+
+
+    }
+
+    public int set(int index, int newValue) {
+        if(index < 0 || index >=size )
+            throw new ArrayIndexOutOfBoundsException();
+        int oldValue = this.integers[index];
+        this.integers[index] = newValue;
+        return oldValue;
+    }
 
     // define an empty array
     // loop through integers
@@ -43,8 +86,13 @@ public class ArrayList {
     //
 
 
+    //  0,1,2,3,4,5
+    // [2,3,2,4,3,2]
 
-    // 1,3,,5,2,1,1,5
+    //  0,1,2
+    // [2,3,4]
+    // [2,3,4]
+
     public boolean contains(Integer[] tempIntegers, int tepmSize, int num) {
         // System.out.println(num);
         for(int i = 0; i < tepmSize; i++) {
@@ -110,7 +158,7 @@ public class ArrayList {
 
 
         // ArrayList arrayList  [24,6,2,8,2]
-        ArrayList arrayList1 = new ArrayList(20);
+        CustomArrayList arrayList1 = new CustomArrayList(20);
 
         arrayList1.insert(2);
         arrayList1.insert(3);
@@ -118,16 +166,24 @@ public class ArrayList {
         arrayList1.insert(4);
         arrayList1.insert(3);
         arrayList1.insert(2);
-
-
-        // arrayList1.insert(2);
-
         System.out.println(arrayList1.toString());
 
-        arrayList1.removeDuplicates();
 
-       System.out.println(arrayList1.toString());
+        System.out.println(arrayList1.set(2, 8));
+        System.out.println(arrayList1.toString());
 
+//        int[] subList = arrayList1.subList(2,5);
+//
+//
+//        System.out.println(Arrays.toString(subList));
+        // arrayList1.insert(2);
+
+//
+//        arrayList1.removeDuplicates();
+//
+//       System.out.println(arrayList1.toString());
+
+        // ArrayList
 
     }
 }
