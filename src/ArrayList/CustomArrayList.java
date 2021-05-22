@@ -1,10 +1,9 @@
 package ArrayList;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CustomArrayList<E> {
-    private Integer[] integers;
+    private E[] integers;
     private final int INIT_CAPACITY = 10;
     private int size = 0;
     private int capacity;
@@ -14,16 +13,16 @@ public class CustomArrayList<E> {
 
 
     public CustomArrayList() {
-        this.integers = new Integer[INIT_CAPACITY]; // 10
+        this.integers = (E[]) new Object[INIT_CAPACITY]; // 10
         this.capacity = INIT_CAPACITY;
     }
 
     public CustomArrayList(int capacity) {
         this.capacity = capacity;
-        this.integers = new Integer[capacity];
+        this.integers = (E[]) new Object[capacity];
     }
 
-    public void insert(int element)  {
+    public void insert(E element)  {
         // size == capacity
         // size more than capacity
         if(this.size == this.capacity) {
@@ -37,7 +36,7 @@ public class CustomArrayList<E> {
 
     public void clear() {
         this.size = 0;
-        this.integers = new Integer[INIT_CAPACITY];
+        this.integers = (E[]) new Object[INIT_CAPACITY];
     }
 
     public int size(){
@@ -48,7 +47,7 @@ public class CustomArrayList<E> {
         if(index < 0 || index >= this.size) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        return this.integers[index];
+        return (int) this.integers[index];
     }
 
 
@@ -64,7 +63,7 @@ public class CustomArrayList<E> {
         int[] subList = new int[end - start + 1];
         int count = 0;
         for(int i = start; i <= end; i++) {
-            subList[count] = this.integers[i];
+            subList[count] = (int) this.integers[i];
             count++;
         }
         return subList;
@@ -72,10 +71,10 @@ public class CustomArrayList<E> {
 
     }
 
-    public int set(int index, int newValue) {
+    public int set(int index, E newValue) {
         if(index < 0 || index >=size )
             throw new ArrayIndexOutOfBoundsException();
-        int oldValue = this.integers[index];
+        int oldValue = (int) this.integers[index];
         this.integers[index] = newValue;
         return oldValue;
     }
@@ -93,7 +92,7 @@ public class CustomArrayList<E> {
     // [2,3,4]
     // [2,3,4]
 
-    public boolean contains(Integer[] tempIntegers, int tepmSize, int num) {
+    public boolean contains(E[] tempIntegers, int tepmSize, E num) {
         // System.out.println(num);
         for(int i = 0; i < tepmSize; i++) {
             if(tempIntegers[i] == num) {
@@ -104,7 +103,7 @@ public class CustomArrayList<E> {
     }
 
     public void removeDuplicates() {
-        Integer[] tempIntegers = new Integer[this.capacity]; // [1,3,5, 2]
+        E[] tempIntegers = (E[]) new Object[this.capacity]; // [1,3,5, 2]
         int tempSize = 0;
         for(int i = 0; i < this.size; i++) {
             if(!this.contains(tempIntegers, tempSize, this.integers[i])) {
