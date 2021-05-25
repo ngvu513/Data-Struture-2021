@@ -74,5 +74,6 @@ public class MarketingManager {
         System.out.println(marketingManager.size());
 
         System.out.println("Total Sales Amount : " + marketingManager.calTotalSalesAmount());
+
     }
 }
