@@ -1,6 +1,11 @@
 package LinkedList;
 
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class DoublyLinkedList<E> {
+    LinkedList<E> linkedList = new LinkedList<>();
+
     private Node<E> head;
     private int size;
 
@@ -40,6 +45,8 @@ public class DoublyLinkedList<E> {
         System.out.print("null" + "\n");
     }
 
+
+
     public static void main(String[] args) {
 //        DoublyLinkedList<Integer> doublyLinkedList = new DoublyLinkedList<>();
 //        Node<Integer> node1 = new Node<>(null, 2, null);
@@ -51,9 +58,9 @@ public class DoublyLinkedList<E> {
 //        doublyLinkedList.addAfter(node1, 5);
 //        doublyLinkedList.displayLinkedList();
 
-        DoublyLinkedList<Integer> doublyLinkedList2 = new DoublyLinkedList<>();
-        doublyLinkedList2.addAfter(null, 9);
-        doublyLinkedList2.displayLinkedList();
+        //DoublyLinkedList<Integer> doublyLinkedList2 = new DoublyLinkedList<>();
+//        doublyLinkedList2.addAfter(null, 9);
+//        doublyLinkedList2.displayLinkedList();
 
 
     }
