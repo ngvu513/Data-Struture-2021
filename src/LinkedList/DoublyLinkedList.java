@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 public class DoublyLinkedList<E> {
-    LinkedList<E> linkedList = new LinkedList<>();
+    // LinkedList<E> linkedList = new LinkedList<>();
 
     private Node<E> head;
     private int size;
@@ -21,12 +21,13 @@ public class DoublyLinkedList<E> {
         }
     }
 
-    private void addAfter(Node<E> node, E item) {
+    private Node<E> addAfter(Node<E> node, E item) {
+        Node<E> itemNode;
         if(node == null) {
-            Node<E> itemNode = new Node<>(null, item, null);
+            itemNode = new Node<>(null, item, null);
             head = itemNode;
         } else {
-            Node<E> itemNode = new Node<>(node, item, node.next);
+            itemNode = new Node<>(node, item, node.next);
 
             node.next = itemNode;
 
@@ -34,6 +35,35 @@ public class DoublyLinkedList<E> {
                 itemNode.next.prev = itemNode;
             }
         }
+        return itemNode;
+    }
+
+    private E removeFirst() {
+        Node<E> temp = head;
+        head = head.next;
+        head.prev = null;
+        return temp.data;
+    }
+
+    public E remove(int index) {
+        Node<E> temp = head;
+        int i = 0;
+        while(temp != null && i < index) {
+            temp = temp.next;
+            i++;
+        }
+        temp.prev.next = temp.next;
+        temp.next.prev = temp.prev;
+
+        return temp.data;
+
+    }
+
+    private E removeAfter(Node<E> node) {
+        Node<E> nodeA = node.next;
+        node.next = nodeA.next;
+        nodeA.next.prev = node;
+        return nodeA.data;
     }
 
     public void displayLinkedList() {
@@ -48,17 +78,21 @@ public class DoublyLinkedList<E> {
 
 
     public static void main(String[] args) {
-//        DoublyLinkedList<Integer> doublyLinkedList = new DoublyLinkedList<>();
-//        Node<Integer> node1 = new Node<>(null, 2, null);
-//        doublyLinkedList.head = node1;
-//
-//        doublyLinkedList.displayLinkedList();
-//
-//
-//        doublyLinkedList.addAfter(node1, 5);
-//        doublyLinkedList.displayLinkedList();
+        DoublyLinkedList<Integer> doublyLinkedList = new DoublyLinkedList<Integer>();
+        Node<Integer> node1 = new Node<>(null, 2, null);
+        doublyLinkedList.head = node1;
 
-        //DoublyLinkedList<Integer> doublyLinkedList2 = new DoublyLinkedList<>();
+        doublyLinkedList.addAfter(node1, 5);
+        doublyLinkedList.addAfter(node1, 9);
+        Node<Integer> node10 = doublyLinkedList.addAfter(node1, 10);
+        doublyLinkedList.addAfter(node1, 6);
+        doublyLinkedList.displayLinkedList();
+        // doublyLinkedList.remove(2);
+        doublyLinkedList.removeFirst();
+        doublyLinkedList.removeAfter(node10);
+        doublyLinkedList.displayLinkedList();
+//
+//        DoublyLinkedList<Integer> doublyLinkedList2 = new DoublyLinkedList<Integer>();
 //        doublyLinkedList2.addAfter(null, 9);
 //        doublyLinkedList2.displayLinkedList();
 

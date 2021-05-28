@@ -1,4 +1,4 @@
-package ArrayList;
+package MidtermReview;
 
 import java.util.Arrays;
 
@@ -67,8 +67,9 @@ public class CustomArrayList<E> {
             count++;
         }
         return subList;
+
+
     }
-    // O(n)
 
     public int set(int index, E newValue) {
         if(index < 0 || index >=size )
@@ -93,7 +94,7 @@ public class CustomArrayList<E> {
 
     public boolean contains(E[] tempIntegers, int tepmSize, E num) {
         // System.out.println(num);
-        for(int i = 0; i < tepmSize; i++) { // O(n)
+        for(int i = 0; i < tepmSize; i++) {
             if(tempIntegers[i] == num) {
                 return true;
             }
@@ -104,7 +105,7 @@ public class CustomArrayList<E> {
     public void removeDuplicates() {
         E[] tempIntegers = (E[]) new Object[this.capacity]; // [1,3,5, 2]
         int tempSize = 0;
-        for(int i = 0; i < this.size; i++) { // O(n)
+        for(int i = 0; i < this.size; i++) {
             if(!this.contains(tempIntegers, tempSize, this.items[i])) {
 
                 tempIntegers[tempSize] = this.items[i];
@@ -115,13 +116,11 @@ public class CustomArrayList<E> {
         this.items = Arrays.copyOf(tempIntegers, this.capacity);
         this.size = tempSize;
     }
-    // O(n)
-    // O(n^2)
 
     public void removeAllOf(E target) {
         E[] tempItems = (E[]) new Object[capacity];
         int j = 0;
-        for(int i = 0; i < size; i++) {
+        for(int i = 0; i < size; i++) { // O(n)
             if(!items[i].equals(target)) {
                 tempItems[j] = items[i];
                 j++;
@@ -130,6 +129,8 @@ public class CustomArrayList<E> {
         size = j;
         items = tempItems;
     }
+    // O(n)
+    // O(n^2)
 
     public void reAllocate() {
         this.capacity = this.capacity * 2; // 40
