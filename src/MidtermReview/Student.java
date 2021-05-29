@@ -1,6 +1,6 @@
 package MidtermReview;
 
-public class Student{
+public class Student implements Comparable<Student>{
     private int sid;
     private String firstName;
     private String lastName;
@@ -54,5 +54,13 @@ public class Student{
                 ", lastName='" + lastName + '\'' +
                 ", score=" + score +
                 '}';
+    }
+
+
+
+
+    @Override
+    public int compareTo(Student o) {
+        return this.getFirstName().compareTo(o.getFirstName());
     }
 }

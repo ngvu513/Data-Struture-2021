@@ -9,11 +9,11 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
-        Student student1 = new Student(1, "David", "ln1", 100);
-        Student student2 = new Student(2, "Vu", "ln2",90);
-        Student student3 = new Student(3, "Dean", "ln3",95);
-        Student student4 = new Student(3, "Mike", "ln3",95);
-        Student student5 = new Student(3, "Salem", "ln3",95);
+        Student student1 = new Student(1, "David", "a", 100);
+        Student student2 = new Student(2, "Vu", "v",90);
+        Student student3 = new Student(3, "Dean", "s",95);
+        Student student4 = new Student(3, "Mike", "b",95);
+        Student student5 = new Student(3, "Salem", "r",95);
 
         List<Student> studentList = new ArrayList<>();
 
@@ -25,8 +25,28 @@ public class Main {
 
 
         FirstNameComparator firstNameComparator = new FirstNameComparator();
+
+        //
+        Collections.sort(studentList, (Student st1, Student st2) -> {
+            return st1.getLastName().compareTo(st2.getLastName());
+        });
+
+        // using anonymous class
+        Collections.sort(studentList, new Comparator<Student>() {
+            @Override
+            public int compare(Student st1, Student st2) {
+                return st1.getLastName().compareTo(st2.getLastName());
+            }
+        });
+
+        Collections.sort(studentList, Comparator.comparing(Student::getLastName));
+
+        // first way
         Collections.sort(studentList, firstNameComparator);
+
 
         System.out.println(studentList.toString());
     }
+
+
 }

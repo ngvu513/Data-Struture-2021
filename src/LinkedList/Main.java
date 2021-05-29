@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        LinkedList<Student> students = new LinkedList<>();
+        ArrayList<Student> students = new ArrayList<>();
         Student student1 = new Student(1, "Name1", 100);
         Student student2 = new Student(2, "Name2", 90);
         Student student3 = new Student(3, "Name3", 95);
@@ -17,21 +17,28 @@ public class Main {
         students.add(student3);
 
 
-        for(int i = 0; i < students.size(); i++) { // O(n)
-            Student temp = students.get(i); // O(n)
-            if(temp.equals(student5))
-             System.out.println("Equal");
-        }
-//        // O(n^2)
-
         Iterator<Student> studentListIterator = students.iterator();
-        Student tempStudent = students.getFirst();
+        Student tempStudent = students.get(0);
 
-        while (studentListIterator.hasNext()) {
+// a O(n)
+        while (studentListIterator.hasNext()) { // O(n)
             if(tempStudent.equals(student5))
                 System.out.println("Equal");
             tempStudent = studentListIterator.next();
         }
+
+// b O(n)
+        for(int i = 0; i < students.size(); i++) { // O(n)
+            Student temp = students.get(i); // O(1)
+            if(students.get(i).equals(student5))
+             System.out.println("Equal");
+        }
+
+
+//        // O(n^2)
+
+
+
         // O(n)
 //
 //        Queue<Student> studentQueue = new PriorityQueue<Student>();

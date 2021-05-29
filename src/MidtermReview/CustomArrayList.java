@@ -8,7 +8,9 @@ public class CustomArrayList<E> {
     private int size = 0;
     private int capacity;
 
-
+//    public E push(E element) {
+//
+//    }
 
 
 
@@ -131,6 +133,15 @@ public class CustomArrayList<E> {
     }
     // O(n)
     // O(n^2)
+
+    // E String, Integer, Double
+    public void replaceAllOf(E target, E newData) {
+        for(int i = 0; i < size; i++) {
+            if(items[i].equals(target)) {
+                items[i] = newData;
+            }
+        }
+    }
 
     public void reAllocate() {
         this.capacity = this.capacity * 2; // 40
