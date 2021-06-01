@@ -7,26 +7,26 @@ import java.util.Stack;
 public class SingleLinkedList<E> {
 
 
-    public E push(E obj) {
-        addFirst(obj);
-        return head.data;
-    }
-
-    public E peek() {
-        if(isEmpty())
-            throw new EmptyStackException();
-
-        return head.data;
-    }
-
-    public E pop() {
-        if(isEmpty())
-            throw new EmptyStackException();
-
-        E hand = head.data;
-        removeFirst();
-        return hand;
-    }
+//    public E push(E obj) {
+//        addFirst(obj);
+//        return head.data;
+//    }
+//
+//    public E peek() {
+//        if(isEmpty())
+//            throw new EmptyStackException();
+//
+//        return head.data;
+//    }
+//
+//    public E pop() {
+//        if(isEmpty())
+//            throw new EmptyStackException();
+//
+//        E hand = head.data;
+//        removeFirst();
+//        return hand;
+//    }
 
     public boolean isEmpty() {
         return head == null;
@@ -90,6 +90,15 @@ public class SingleLinkedList<E> {
 
     }
 
+    public boolean search (Node<E> node, E data) {
+        if(node == null) return false;
+        if(node.data == data) return true;
+        return search(node.next, data);
+    }
+
+    public boolean search (E data) {
+        return search(head, data);
+    }
 
     private Node<E> getNode(int index){
         Node<E> node = head;
@@ -213,14 +222,15 @@ public class SingleLinkedList<E> {
         list.add(1,"Yasmeen");
         list.add("Eggie");
         list.add("John");
-        list.removeItem("John");
-        list.removeItem("Yasmeen");
-        list.removeItem("Zaineh");
+//        list.removeItem("John");
+//        list.removeItem("Yasmeen");
+//        list.removeItem("Zaineh");
 
 //        list.removeItem("Yasmeen");
 //        list.removeItem("Dean");
         System.out.println(list);
 
+        System.out.println(list.search(list.head, "Dean"));
 
 
 
