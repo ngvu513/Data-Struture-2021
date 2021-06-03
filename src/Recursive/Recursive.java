@@ -43,11 +43,40 @@ public class Recursive {
         return 0;
     }
 
+    public boolean hasDuplicate(int[] arr){
+        return hasDuplicate(arr[0], arr, 0);
+    }
+
+    public boolean hasDuplicate(int number, int[] arr, int index) {
+
+        if(index == arr.length - 1) {
+            return false;
+        }
+
+        for(int i = index + 1; i < arr.length; i++) {
+            if(number == arr[i]) {
+                return true;
+            }
+        }
+        index++;
+        return hasDuplicate(arr[index], arr, index);
+
+    }
 
     public static void main(String[] args) {
         // System.out.println(Recursive.convert(30));
-        System.out.println(Recursive.countVowels("Evening sessions"));
+        // System.out.println(Recursive.countVowels("Evening sessions"));
 
+        //
+        int [] nums1 = {1, 2, 3, 4, 5};
+
+
+        Recursive recursive = new Recursive();
+        System.out.println(recursive.hasDuplicate(nums1));
+
+        // 1 compare [2, 2, 4, 5]
+        // 2 compare [2, 4, 5]
+        // []
 
 
     }

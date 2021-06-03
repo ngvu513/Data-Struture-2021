@@ -479,7 +479,48 @@ public class BinarySearchTree<E extends Comparable<E>>
     // count how many x
 
 
+//    Given the root of a binary tree, return its maximum depth.
+    //    A binary tree's maximum depth is the number of nodes along
+//    the longest path from the root node down to the farthest leaf node.
 
+//    public int maxDepth(Node root) {
+//        return 0;
+//    }
+
+
+    public int maxDepth(Node node) {
+        if(node == null) {
+            return 0;
+        }
+
+        int left = maxDepth(node.left);
+        int right = maxDepth(node.right);
+
+        if(left < right) {
+            return right + 1;
+        } else
+            return left + 1;
+    }
+
+
+//    Given a binary tree, determine if it is height-balanced.
+//    For this problem, a height-balanced binary tree is defined as:
+//    a binary tree in which the left and right subtrees of every node differ in height by no more than 1.
+//   https://leetcode.com/problems/balanced-binary-tree/
+
+    public boolean isBalanced(Node node) {
+        if(node == null) return true;
+
+        if((Math.abs(maxDepth(node.left) - maxDepth(node.right)) < 2 )
+                && isBalanced(node.left) && isBalanced(node.right))
+            return true;
+
+        return false;
+    }
+
+
+
+//   https://leetcode.com/problems/path-sum/
 
     /*</exercise>*/
     public static void main(String args[]){
@@ -498,14 +539,21 @@ public class BinarySearchTree<E extends Comparable<E>>
 //       System.out.println("Finding of 46 :" + bst.contains(46));
 //       System.out.println("Finding of 100 :" + bst.find(100));
 //       System.out.println("In order Traversal Result : ");
-       bst.inOrder();
+         // bst.inOrder();
 
 //       bst.preOrder();
 //       bst.postOrder();
 
-        System.out.println(bst.leafCount());
+        // System.out.println(bst.leafCount());
 
-        System.out.println(bst.countInRange(50, 80));
+        // System.out.println(bst.countInRange(50, 80));
+        // System.out.println(bst.maxDepth(bst.root));
+
+        System.out.println(bst.isBalanced(bst.root));
+
+
+
+
     }
    
 }

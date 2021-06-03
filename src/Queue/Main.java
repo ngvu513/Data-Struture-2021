@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         AgeComparator ageComparator = new AgeComparator();
-        GenderComparator genderComparator = new GenderComparator();
+        // GenderComparator genderComparator = new GenderComparator();
         Queue<Person> personQueue = new PriorityQueue<Person>(ageComparator);
-        Queue<Person> personQueueByGender = new PriorityQueue<Person>(genderComparator);
+        // Queue<Person> personQueueByGender = new PriorityQueue<Person>(genderComparator);
 
         Person person1 = new Person("person1", "male", 20);
         Person person2 = new Person("person2", "female", 70);
