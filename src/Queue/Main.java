@@ -34,7 +34,7 @@ public class Main {
         // 70 -> 45 -> 30 -> 20 -> 19
         personQueue.add(person5);
 
-        System.out.println(personQueue.peek().toString());
+        System.out.println(personQueue.peek());
         System.out.println(personQueue.size());
 
         while(!personQueue.isEmpty()) {

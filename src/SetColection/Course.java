@@ -12,6 +12,26 @@ public class Course {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Course course = (Course) o;
+
+        if (creditHours != course.creditHours) return false;
+        if (cID != null ? !cID.equals(course.cID) : course.cID != null) return false;
+        return cName != null ? cName.equals(course.cName) : course.cName == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = cID != null ? cID.hashCode() : 0;
+        result = 31 * result + (cName != null ? cName.hashCode() : 0);
+        result = 31 * result + creditHours;
+        return result;
+    }
+
+    @Override
     public String toString() {
         return "Course{" +
                 "cID='" + cID + '\'' +

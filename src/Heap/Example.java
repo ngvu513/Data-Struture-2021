@@ -11,6 +11,11 @@ class Example {
         // Creating empty priority queue
         PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>();
 
+        // PriorityQueue
+        // Deque
+
+
+
         // Adding items to the pQueue using add()
         pQueue.add(10);
         pQueue.add(30);

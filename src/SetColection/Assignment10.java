@@ -9,6 +9,7 @@ public class Assignment10 {
         for (String string: list) {
             hashMap.put(string, hashMap.size());
         }
+//        hashMap.get()
         return hashMap;
     }
 
@@ -103,17 +104,17 @@ public class Assignment10 {
         // arr[0]
         // {("a", 5), ("g", 69), ("u", 8)}
 
-//        HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
-//        stringIntegerHashMap.put("a", 5);
-//        stringIntegerHashMap.put("g", 69);
-//        stringIntegerHashMap.put("u", 8);
-//
-//        for (Map.Entry<String, Integer> item: stringIntegerHashMap.entrySet()) {
-//            if(item.getValue() == 8)
-//                System.out.println(item.getKey() + " : " + item.getValue());
-//        }
-//
-//        System.out.println(stringIntegerHashMap.get("u"));
+        HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
+        stringIntegerHashMap.put("a", 5);
+        stringIntegerHashMap.put("g", 69);
+        stringIntegerHashMap.put("u", 8);
+
+        for (Map.Entry<String, Integer> item: stringIntegerHashMap.entrySet()) {
+            if(item.getValue() == 8)
+                System.out.println(item.getKey() + " : " + item.getValue());
+        }
+
+        System.out.println(stringIntegerHashMap.get("u"));
 
 
 //        Course course1 = new Course("C289", "Data Structure", 100);
@@ -123,6 +124,28 @@ public class Assignment10 {
 //        List<Course> courseList = Arrays.asList(course1, course2, course3);
 //
 //        System.out.println(assignment10.addToMap(courseList));
+
+
+        HashMap<Integer,String> smartphones = new HashMap<Integer,String>();
+        smartphones.put(1, "iPhone");
+        smartphones.put(4, "Samsung");
+        smartphones.put(3, "Huawei");
+        smartphones.put(7, "Nokia");
+        smartphones.put(7, "Pixel");
+
+        for (Integer k : smartphones.keySet()){
+            System.out.println(k);
+        }
+
+        HashSet<String> set = new HashSet();
+        set.add("Java");
+        set.add("Swing");
+        set.add("Spring");
+        set.add("Java");
+        set.remove("Java");
+        System.out.println(set);
+        System.out.println(set.contains("Swing"));
+
 
     }
 }
