@@ -17,6 +17,7 @@ public class Assignment10 {
     public int countDistinctValue(List<String> strings) {
         Set<String> set = new HashSet<>();
         set.addAll(strings);
+
         return set.size();
     }
 
@@ -50,7 +51,7 @@ public class Assignment10 {
 
 
     public static void main(String[] args) {
-//        Set<String> set = new LinkedHashSet<String>();
+        Set<String> set = new LinkedHashSet<String>();
 //
 //        HashMap<Integer, Integer> hashMap = new HashMap<>();
 //        hashMap.put(1,7);
@@ -64,7 +65,7 @@ public class Assignment10 {
         Assignment10 assignment10 = new Assignment10();
 
 
-        System.out.println(Assignment10.removeDuplicates(strings));
+//        System.out.println(Assignment10.removeDuplicates(strings));
 //
 //        System.out.println(assignment10.countDistinctValue(strings));
 
@@ -77,10 +78,26 @@ public class Assignment10 {
 
 
 
-//        List<String> listA = Arrays.asList("Ann", "Sally", "Jill");
-//        Set<String> setA = new HashSet<>();
-//        setA.addAll(listA);
-//        System.out.println(setA);
+        List<String> listA = Arrays.asList("Ann", "Sally", "Jill");
+        Set<String> setA = new HashSet<>();
+        setA.addAll(listA);
+        System.out.println(setA);
+
+
+        Iterator<String> iterator = setA.iterator();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+//        for(int i = 0; i < setA.size(); i++) {
+//            setA.
+//        }
+
+
+
+
+
 //
 //
 //        List<String> listB = Arrays.asList("Bob", "Ann", "Jill", "Bill");
@@ -104,47 +121,63 @@ public class Assignment10 {
         // arr[0]
         // {("a", 5), ("g", 69), ("u", 8)}
 
-        HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
-        stringIntegerHashMap.put("a", 5);
-        stringIntegerHashMap.put("g", 69);
-        stringIntegerHashMap.put("u", 8);
-
-        for (Map.Entry<String, Integer> item: stringIntegerHashMap.entrySet()) {
-            if(item.getValue() == 8)
-                System.out.println(item.getKey() + " : " + item.getValue());
-        }
-
-        System.out.println(stringIntegerHashMap.get("u"));
+//        HashMap<String, Integer> stringIntegerHashMap = new HashMap<>();
+//        stringIntegerHashMap.put("a", 5);
+//        stringIntegerHashMap.put("g", 69);
+//        stringIntegerHashMap.put("u", 8);
+//
+//        for (Map.Entry<String, Integer> item: stringIntegerHashMap.entrySet()) {
+//            if(item.getValue() == 8)
+//                System.out.println(item.getKey() + " : " + item.getValue());
+//        }
+//
+//        System.out.println(stringIntegerHashMap.get("u"));
 
 
 //        Course course1 = new Course("C289", "Data Structure", 100);
 //        Course course2 = new Course("C203", "OOP", 200);
 //        Course course3 = new Course("C205", "Math", 500);
 //
+//        System.out.println(course1.hashCode());
+//        System.out.println(course2.hashCode());
+//        System.out.println(course3.hashCode());
+
+//        Integer integer = 20;
+//        System.out.println(integer.hashCode());
+//        77628183
+//        1968240234
+//        2039926112
+
+//        77628183
+//        1968240234
+//        2039926112
+
+
+//
 //        List<Course> courseList = Arrays.asList(course1, course2, course3);
 //
 //        System.out.println(assignment10.addToMap(courseList));
 
 
-        HashMap<Integer,String> smartphones = new HashMap<Integer,String>();
-        smartphones.put(1, "iPhone");
-        smartphones.put(4, "Samsung");
-        smartphones.put(3, "Huawei");
-        smartphones.put(7, "Nokia");
-        smartphones.put(7, "Pixel");
-
-        for (Integer k : smartphones.keySet()){
-            System.out.println(k);
-        }
-
-        HashSet<String> set = new HashSet();
-        set.add("Java");
-        set.add("Swing");
-        set.add("Spring");
-        set.add("Java");
-        set.remove("Java");
-        System.out.println(set);
-        System.out.println(set.contains("Swing"));
+//        HashMap<Integer,String> smartphones = new HashMap<Integer,String>();
+//        smartphones.put(1, "iPhone");
+//        smartphones.put(4, "Samsung");
+//        smartphones.put(3, "Huawei");
+//        smartphones.put(7, "Nokia");
+//        smartphones.put(7, "Pixel");
+//
+//        for (Integer k : smartphones.keySet()){
+//            System.out.println(k);
+//        }
+//
+//        HashSet<String> set = new HashSet();
+//        set.add("Java");
+//        set.add("Swing");
+//        set.add("Spring");
+//        set.add("Java");
+//        set.remove("Java");
+//        System.out.println(set);
+//        System.out.println(set.contains("Swing"));
 
 
     }

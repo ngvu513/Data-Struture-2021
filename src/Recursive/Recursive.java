@@ -1,6 +1,6 @@
 package Recursive;
 
-public class Recursive {
+public class Recursive implements Runnable {
     public static String convert(int decimal) {
 
         if(decimal >= 1) {
@@ -79,5 +79,10 @@ public class Recursive {
         // []
 
 
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Test");
     }
 }
